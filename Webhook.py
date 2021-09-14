@@ -1,8 +1,13 @@
 import requests
 import os
 from os import system
+import platform
 
-os.system('cls')
+if platform.system == ("linux"):
+    os.system("clear")
+else:
+    os.system("cls")
+
 print('Simple Discord webhook sender in Python\n')
 a = input('Enter Webhook : ')
 b = input('Enter Avatar : ')
@@ -14,7 +19,7 @@ def webhook():
             webhook = (a)
             avatar = (b)
             username = (c)
-            message = input("Enter Message: ")
+            message = input("Enter Message : ")
             data = requests.post(webhook, json={'content': message, 'avatar_url': avatar, "username": username})
 
             if data.status_code == 204:
