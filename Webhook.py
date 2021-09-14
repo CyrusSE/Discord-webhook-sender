@@ -11,7 +11,7 @@ else:
 print('Simple Discord webhook sender in Python\n')
 a = input('Enter Webhook : ')
 b = input('Enter Avatar : ')
-c = input('Enter Username: ')
+c = input('Enter Username : ')
 
 def webhook():
     while True:
