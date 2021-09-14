@@ -26,7 +26,7 @@ def webhook():
                 print('\n' 'Sent : ' + message)
                 print('To : ' + a, '\n')
             else:
-                print("\nWebhook Error Deleted\n-> " + webhook)
+                print("\nWebhook Error or Deleted\n-> " + webhook)
                 break
         except:
             break
