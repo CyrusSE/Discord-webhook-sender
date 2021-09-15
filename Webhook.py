@@ -10,7 +10,7 @@ else:
 
 print('Simple Discord webhook sender in Python\n')
 a = input('Enter Webhook : ')
-b = input('Enter Avatar : ')
+b = input('Enter Avatar [url] : ')
 c = input('Enter Username : ')
 
 def webhook():
@@ -25,10 +25,19 @@ def webhook():
             if data.status_code == 204:
                 print('\n' 'Sent : ' + message)
                 print('To : ' + a, '\n')
+                continue
             else:
-                print("\nWebhook Error or Deleted\n-> " + webhook)
-                break
+                data = requests.post(webhook, json={'content': message, "username": username})
+                if data.status_code == 204:
+                 print('\n' 'Sent : ' + message)
+                 print('To : ' + a, '\n')
+                 continue
+                else:
+                    print("\nWebhook Error or Deleted!\n-> " + webhook)
+                    break
+            print("\nWebhook Error or Deleted!\n-> " + webhook)
         except:
+            print('\nSomething happend! / cannot connect to the webhook.')
             break
 
 webhook()
